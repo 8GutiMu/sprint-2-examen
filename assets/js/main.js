@@ -27,27 +27,34 @@ function mostrar(contenido){
 
   var listaBebe = document.createElement("ul");
   var boton = document.createElement("button");
-  var numeroId = Date.now()
-  listaBebe.id = Date.now();
+  var texto = document.createElement("input");
+  var linea = document.createElement("hr");
+  var numeroId = Date.now();
+  texto.type = "text";
+  texto.id = numeroId+1;
+  listaBebe.id = numeroId;
   boton.innerHTML = "Agregar Pendiente";
+  boton.onclick = function(numeroId){
+    var id = texto.id;
+    var pendienteTexto = document.getElementById(texto.id).value;
 
-  console.log(listaBebe);
-  console.log(boton);
-  console.log(numeroId)
+    var node = document.createElement("LI");
+    //var textnode = document.createTextNode(pendienteTexto);
+    node.innerHTML = pendienteTexto;
 
-  document.getElementById("listas").appendChild(listaBebe);
-  document.getElementById("listas").appendChild(boton);
-
-
-  crearPendientes(numeroId)
-
-
+    //node.appendChild(textnode);
+    console.log(id-1);
+    document.getElementById(id-1).appendChild(node);
 }
 
-function crearPendientes(numeroId){
-  var node = document.createElement("li");
-  var textnode = document.createTextNode("bren");
-  node.appendChild(textnode);
-  document.getElementById(numeroId).appendChild(node);
+
+  console.log(listaBebe,boton,texto);
+
+  document.getElementById("listas").appendChild(listaBebe);
+  document.getElementById("listas").appendChild(texto);
+  document.getElementById("listas").appendChild(boton);
+  document.getElementById("listas").appendChild(linea);
+
+
 
 }
