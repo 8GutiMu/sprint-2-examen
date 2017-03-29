@@ -7,11 +7,18 @@ var todasLasListas=[];
 
 //va creando nuevos objetos cada vez que se llama con el botn de el inicio
 function crearLista(){
+
   var titulo = document.getElementById("nombreLista").value;
 
-  var lista = new POOLista(titulo);
-  todasLasListas.push(lista);
-  mostrar(lista);
+  if(titulo == ""){
+    alert("NO estas ingresando NADAAAA!!!")
+  } else{
+    var lista = new POOLista(titulo);
+    todasLasListas.push(lista);
+    mostrar(lista);
+  }
+
+
 
 
 }
@@ -24,7 +31,7 @@ function mostrar(contenido){
   node.style.fontSize = "40px";
   node.id=numeroId+2;
 
-  
+
   var textnode = document.createTextNode(contenido.titulo);
   node.appendChild(textnode);
   document.getElementById("listas").appendChild(node);
