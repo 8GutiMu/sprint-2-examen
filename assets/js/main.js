@@ -26,15 +26,28 @@ function mostrar(contenido){
   document.getElementById("listas").appendChild(node);
 
   var listaBebe = document.createElement("ul");
+  var boton = document.createElement("button");
+  var numeroId = Date.now()
+  listaBebe.id = Date.now();
+  boton.innerHTML = "Agregar Pendiente";
 
-  crearPendientes()
+  console.log(listaBebe);
+  console.log(boton);
+  console.log(numeroId)
+
+  document.getElementById("listas").appendChild(listaBebe);
+  document.getElementById("listas").appendChild(boton);
+
+
+  crearPendientes(numeroId)
+
 
 }
 
-function crearPendientes(){
+function crearPendientes(numeroId){
   var node = document.createElement("li");
   var textnode = document.createTextNode("bren");
   node.appendChild(textnode);
-  document.getElementsByTagName("ul")[0].appendChild(node);
+  document.getElementById(numeroId).appendChild(node);
 
 }
